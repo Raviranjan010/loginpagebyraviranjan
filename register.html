@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="test.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(130deg, #DF36CE 18%, #EC7EE1 30.2%, rgba(24, 218, 231, 0.49) 86.39%), url("https://img.freepik.com/free-photo/bag-beach-accessories-kept-sand_1252-475.jpg?w=1380&t=st=1680012186~exp=1680012786~hmac=32c5373a9e5c9cd4b3b16266627273cb290b98b33aab987350038c98af5ba4dc");
+            font-family: 'Poppins', sans-serif;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: url('https://www.cursor.cc/cursor/32/48/cursor.png'), auto;
+            overflow: hidden;
+            position: relative; /* Added for watermark positioning */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative; /* Added for watermark positioning */
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input[type="password"] {
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 16px;
+            color: #888;
+        }
+
+        button {
+            background: linear-gradient(270deg, #DF36CE 5.33%, #EC7EE1 55.2%, rgba(24, 218, 231, 0.49) 86.39%);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(270deg, #EC7EE1 5.33%, #DF36CE 55.2%, rgba(24, 218, 231, 0.49) 86.39%);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: #DF36CE;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #EC7EE1;
+        }
+
+        .links {
+            margin-top: 1rem;
+        }
+
+        .links a {
+            color: #DF36CE;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+            }
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #EC7EE1;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            animation: cursorAnim 0.2s linear infinite;
+        }
+
+        @keyframes cursorAnim {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.8);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Watermarks */
+        .watermark {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 2rem;
+            transform: rotate(-45deg);
+            pointer-events: none;
+        }
+
+        .watermark.top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .watermark.bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .watermark.center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/dad03e859c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Register</h1>
+            <form id="register-form" action="">
+                <div class="input-group">
+                    <input type="text" id="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button id="register" type="submit">REGISTER</button>
+                <p>Or register using</p>
+                <div class="social-icons">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                </div>
+                <div class="links">
+                    <p>Already have an account? <a href="login.html">LOGIN</a></p>
+                </div>
+            </form>
+            <div class="watermark top-left">By Ravi Ranjan</div>
+            <div class="watermark bottom-right">By Ravi Ranjan</div>
+            <div class="watermark center">By Ravi Ranjan</div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <script>
+        const registerButton = document.getElementById("register");
+        registerButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            let fullname = document.getElementById("fullname").value;
+            let email = document.getElementById("email").value;
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+    
+            if (fullname === "" || email === "" || username === "" || password === "" || confirmPassword === "") {
+                alert("Please fill all fields.");
+                return false;
+            }
+    
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+    
+            if (password.length < 4 || username.length < 4) {
+                alert("Username and password must be at least 4 characters long.");
+                return false;
+            }
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            } else {
+                // submit the form
+                document.getElementById('register-form').submit();
+            }
+        });
+    
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.type = (passwordField.type === "password") ? "text" : "password";
+        }
+    
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()\[\]\\.,;:\s@"]+\.)+[^<>()\[\]\\.,;:\s@"]{2,})$/i;
+            return re.test(String(email).toLowerCase());
+        }
+    
+        // Custom Cursor
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor');
+        document.body.appendChild(cursor);
+    
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    </script>
+</body>
+</html>    
